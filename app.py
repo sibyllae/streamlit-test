@@ -6,7 +6,7 @@ with st.sidebar:
     # 在側邊欄中嵌入 iframe
     st.components.v1.html(
         """
-        <iframe src="http://127.0.0.1:5500/index.html" 
+        <iframe src="https://sibyllae.github.io/streamlit-test/index.html" 
                 width="300" height="400" 
                 style="border:none;">
         </iframe>
