@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ECharts 圖表</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <style>
+      body {
+        display: flex;
+      }
+      .chart {
+        width: 50%;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="barChart" class="chart"></div>
+    <div id="pieChart" class="chart"></div>
+
+    <script>
+      // 初始化柱狀圖
+      var barChart = echarts.init(document.getElementById('barChart'));
+      var barOption = {
+        title: {
+          text: '柱狀圖',
+        },
+        tooltip: {},
+        xAxis: {
+          data: ['A', 'B', 'C', 'D'],
+        },
+        yAxis: {},
+        series: [
+          {
+            name: '數量',
+            type: 'bar',
+            data: [10, 20, 30, 40],
+            itemStyle: {
+              color: 'skyblue',
+            },
+          },
+        ],
+      };
+      barChart.setOption(barOption);
+
+      // 初始化圓餅圖
+      var pieChart = echarts.init(document.getElementById('pieChart'));
+      var pieOption = {
+        title: {
+          text: '圓餅圖',
+          left: 'center',
+        },
+        tooltip: {
+          trigger: 'item',
+        },
+        series: [
+          {
+            name: '來源',
+            type: 'pie',
+            radius: '50%',
+            data: [
+              { value: 15, name: 'A' },
+              { value: 30, name: 'B' },
+              { value: 45, name: 'C' },
+              { value: 10, name: 'D' },
+            ],
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+              },
+            },
+          },
+        ],
+      };
+      pieChart.setOption(pieOption);
+    </script>
+  </body>
+</html>
